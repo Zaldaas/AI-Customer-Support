@@ -2,11 +2,15 @@
 import {Box, Stack, TextField, Button, Typography} from "@mui/material";
 import Image from "next/image";
 import {useState} from 'react';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+import rehypeSanitize from 'rehype-sanitize';
+import remarkGfm from 'remark-gfm';
 
 export default function Home() {
   const [messages, setMessages] = useState([{
     role: "assistant",
-    content: "Hello! I'm the Headstarter AI assistant. How can I help you today?",
+    content: "# Welcome to AI Customer Support!\n\nHello! I'm the **Headstarter AI assistant**. I can help you with:\n\n- Answering questions\n- Providing information\n- Having conversations\n\nHow can I help you today? 🎮",
   }]);
   
   const [message, setMessage] = useState("");
@@ -137,9 +141,69 @@ export default function Home() {
                   fontSize: '0.8rem',
                   boxShadow: '3px 3px 0px rgba(0,0,0,0.3)',
                   border: '2px solid var(--border-color)',
+                  '& .markdown': {
+                    whiteSpace: 'pre-wrap',
+                    wordBreak: 'break-word',
+                  },
+                  '& a': {
+                    color: '#ffffff',
+                    textDecoration: 'underline',
+                  },
+                  '& code': {
+                    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                    padding: '0.1rem 0.3rem',
+                    borderRadius: '3px',
+                    fontFamily: 'var(--font-geist-mono)',
+                    fontSize: '0.75rem',
+                    wordBreak: 'break-all',
+                  },
+                  '& pre': {
+                    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                    padding: '0.5rem',
+                    borderRadius: '5px',
+                    overflowX: 'auto',
+                    border: '1px solid var(--border-color)',
+                  },
+                  '& pre code': {
+                    backgroundColor: 'transparent',
+                    padding: 0,
+                  },
+                  '& blockquote': {
+                    borderLeft: '3px solid var(--text-color)',
+                    paddingLeft: '0.5rem',
+                    margin: '0.5rem 0',
+                  },
+                  '& ul, & ol': {
+                    paddingLeft: '1.5rem',
+                    marginBottom: '0.5rem',
+                  },
+                  '& h1, & h2, & h3, & h4, & h5, & h6': {
+                    margin: '0.5rem 0',
+                  },
+                  '& table': {
+                    borderCollapse: 'collapse',
+                    width: '100%',
+                    marginBottom: '0.5rem',
+                  },
+                  '& th, & td': {
+                    border: '1px solid var(--border-color)',
+                    padding: '0.25rem',
+                    textAlign: 'left',
+                  },
+                  '& hr': {
+                    border: 'none',
+                    borderBottom: '1px solid var(--border-color)',
+                    margin: '0.5rem 0',
+                  },
                 }}
+                className="markdown"
               >
-                {message.content}
+                <ReactMarkdown
+                  rehypePlugins={[rehypeRaw, rehypeSanitize]}
+                  remarkPlugins={[remarkGfm]}
+                >
+                  {message.content}
+                </ReactMarkdown>
               </Box>
             </Box>
           ))}
