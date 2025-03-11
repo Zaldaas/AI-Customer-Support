@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+}
+
+:root {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --primary-color: #7b68ee;
+  --secondary-color: #ff6b6b;
+  --surface-color: #1e1e1e;
+  --border-color: #333333;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Adjust spacing for the retro font which needs more breathing room */
+p, span, button, input, textarea {
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  font-size: 0.85rem;
+}
+
+/* Custom scrollbar for retro feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
