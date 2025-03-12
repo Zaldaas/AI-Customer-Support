@@ -10,7 +10,7 @@ import remarkGfm from 'remark-gfm';
 export default function Home() {
   const [messages, setMessages] = useState([{
     role: "assistant",
-    content: "# Welcome to AI Customer Support!\n\nHello! I'm the **Headstarter AI assistant**. I can help you with:\n\n- Answering questions\n- Providing information\n- Having conversations\n\nHow can I help you today? 🎮",
+    content: "# Welcome to AI Customer Support!\n\nHello! I'm the **Headstarter AI assistant**. I can help you with:\n\n- Answering questions\n- Providing information\n- Having conversations\n\nHow can I help you today? 🤖",
   }]);
   
   const [message, setMessage] = useState("");
