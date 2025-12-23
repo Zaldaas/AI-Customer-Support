@@ -1,9 +1,6 @@
 # AI Customer Support
 This is an interactive AI Customer Support Chatbot for Headstarter AI, a platform that provides AI-powered interviews for software engineering jobs. The chatbot can converse with users on various topics, primarily focused on providing information about Headstarter AI's services and assisting potential candidates.
 
-## Live Demo
-Deployed on AWS EC2 at: http://3.142.174.24/
-
 ## Features
 - Real-time chat interface with streaming responses
 - Markdown support for rich text formatting
